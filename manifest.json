@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Improve Focus",
+  "version": "1.0.0",
+  "description": "Stay focused on one task by spotting unrelated tabs during a timed session.",
+  "permissions": [
+    "alarms",
+    "notifications",
+    "storage",
+    "tabs"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Improve Focus",
+    "default_icon": "icon.png"
+  },
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Improve Focus</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <img src="icon.svg" alt="" width="42" height="42">
+        <div>
+          <p class="eyebrow">One task at a time</p>
+          <h1>Improve Focus</h1>
+        </div>
+      </header>
+
+      <section id="setupView">
+        <form id="sessionForm">
+          <label for="taskInput">What will you focus on?</label>
+          <textarea
+            id="taskInput"
+            rows="3"
+            maxlength="180"
+            placeholder="Finish the investor update"
+            required
+          ></textarea>
+
+          <label for="timeSelect">Estimated time needed</label>
+          <select id="timeSelect" required>
+            <option value="15">15 minutes</option>
+            <option value="25">25 minutes</option>
+            <option value="30" selected>30 minutes</option>
+            <option value="45">45 minutes</option>
+            <option value="60">1 hour</option>
+            <option value="90">1 hour 30 minutes</option>
+            <option value="120">2 hours</option>
+          </select>
+
+          <p id="formError" class="error" role="alert"></p>
+          <button type="submit" class="primary">Start Session</button>
+        </form>
+      </section>
+
+      <section id="runningView" hidden>
+        <p class="status"><span class="statusDot"></span> Session running</p>
+        <p class="taskLabel">Current task</p>
+        <h2 id="currentTask"></h2>
+
+        <div class="timerCard">
+          <div>
+            <span>Running time</span>
+            <strong id="runningTime">00:00</strong>
+          </div>
+          <div>
+            <span>Time left</span>
+            <strong id="timeLeft">00:00</strong>
+          </div>
+        </div>
+
+        <div class="counts">
+          <div class="count relevant">
+            <strong id="relevantCount">0</strong>
+            <span>Relevant</span>
+          </div>
+          <div class="count irrelevant">
+            <strong id="irrelevantCount">0</strong>
+            <span>Irrelevant</span>
+          </div>
+        </div>
+
+        <button id="endButton" type="button" class="danger">End Session</button>
+      </section>
+
+      <section id="summaryView" hidden>
+        <p class="eyebrow">Session complete</p>
+        <h2>Focus summary</h2>
+        <p id="summaryTask" class="summaryTask"></p>
+        <dl class="summaryGrid">
+          <div><dt>Running time</dt><dd id="summaryRunning"></dd></div>
+          <div><dt>Time result</dt><dd id="summaryTimeResult"></dd></div>
+          <div><dt>Relevant tabs</dt><dd id="summaryRelevant"></dd></div>
+          <div><dt>Irrelevant tabs</dt><dd id="summaryIrrelevant"></dd></div>
+        </dl>
+        <button id="newSessionButton" type="button" class="primary">Start Another Session</button>
+      </section>
+    </main>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
