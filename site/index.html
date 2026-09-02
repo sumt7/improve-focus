@@ -29,6 +29,12 @@
     <meta name="twitter:creator" content="@sumt7">
     <link rel="stylesheet" href="/styles.css">
     <script src="/script.js" defer></script>
+    <script>
+      window.va = window.va || function () {
+        (window.vaq = window.vaq || []).push(arguments);
+      };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
   </head>
   <body>
     <header class="site-header">
@@ -50,23 +56,10 @@
             <span class="file-note">ZIP file · install in developer mode</span>
           </div>
           <aside class="trust-block" aria-labelledby="trust-title">
-            <div class="trust-top">
-              <div>
-                <span class="trust-kicker">Built by</span>
-                <strong id="trust-title">Sumeet Mahendra</strong>
-              </div>
-              <div class="trust-links">
-                <a href="https://x.com/sumt7">@sumt7</a>
-                <a href="https://github.com/sumt7/improve-focus">Public source ↗</a>
-              </div>
-            </div>
-            <p class="trust-label">Privacy at a glance</p>
-            <ul>
-              <li><strong>Permissions:</strong> alarms schedules the time-up alert; notifications shows focus alerts; storage keeps session settings; tabs reads the activated tab’s ID, title, and URL. Access to https://api.openai.com/* is only for optional AI checks.</li>
-              <li><strong>Tab data:</strong> A tab’s title and URL are checked against your task when you activate it. The extension stores the tab ID and relevant/irrelevant result—not its title or URL.</li>
-              <li><strong>On this Chrome profile:</strong> Your task, session state, counts, check status, and API key use chrome.storage.local. The key is saved as the plain-text value openAiApiKey; the code does not encrypt it.</li>
-              <li><strong>Optional AI:</strong> Without a key, the keyword check runs on-device. For an AI check, your key is sent to OpenAI as authorization, and your task, the active tab title, and its URL are sent in the request. The request sets store: false. The source contains no analytics or developer backend.</li>
-            </ul>
+            <p id="trust-title"><strong>Built by Sumeet Mahendra</strong> · <a href="https://x.com/sumt7">@sumt7</a></p>
+            <p><strong>Public source:</strong> <a href="https://github.com/sumt7/improve-focus">View on GitHub ↗</a></p>
+            <p><strong>Reads:</strong> the activated tab’s title and URL to check relevance.</p>
+            <p><strong>OpenAI key:</strong> stored as plain text in chrome.storage.local for this Chrome profile.</p>
           </aside>
           <p class="ai-note"><strong>AI is optional.</strong> Improve Focus works without it. AI relevance checks require your own OpenAI API key.</p>
         </div>
@@ -94,7 +87,7 @@
         <div class="section-heading">
           <p class="eyebrow">Chrome setup</p>
           <h2 id="install-title">Install in about two minutes.</h2>
-          <p>Chrome calls this an “unpacked extension” because it comes directly from a folder, not the Chrome Web Store.</p>
+          <p>This is a manual Chrome extension install. It takes six steps and requires Developer mode to be turned on.</p>
         </div>
 
         <ol class="steps">

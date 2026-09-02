@@ -72,17 +72,10 @@ h1 { margin: 0; font-size: clamp(3.7rem, 7vw, 6.7rem); line-height: 0.92; letter
 .button:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 var(--orange); }
 .button:focus-visible, a:focus-visible { outline: 3px solid var(--orange); outline-offset: 4px; }
 .file-note { color: var(--muted); font-size: 0.9rem; }
-.trust-block { max-width: 620px; margin-top: 26px; padding: 20px; border: 1px solid var(--line); border-radius: 12px; background: rgba(255,255,255,.56); }
-.trust-top { display: flex; align-items: flex-end; justify-content: space-between; gap: 18px; }
-.trust-top > div:first-child { display: flex; flex-direction: column; gap: 2px; }
-.trust-kicker, .trust-label { color: var(--muted); font-size: .7rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
-.trust-top strong { font-family: "Manrope", sans-serif; font-size: 1rem; }
-.trust-links { display: flex; gap: 14px; font-size: .8rem; font-weight: 700; }
-.trust-links a { color: var(--green); text-underline-offset: 3px; }
-.trust-label { margin: 17px 0 8px; }
-.trust-block ul { margin: 0; padding-left: 18px; display: grid; gap: 7px; color: var(--muted); font-size: .78rem; line-height: 1.45; }
-.trust-block li::marker { color: var(--orange); }
-.trust-block li strong { color: var(--ink); }
+.trust-block { max-width: 620px; margin-top: 26px; padding: 20px; display: grid; gap: 7px; border: 1px solid var(--line); border-radius: 12px; background: rgba(255,255,255,.56); }
+.trust-block p { margin: 0; color: var(--muted); font-size: .8rem; line-height: 1.4; }
+.trust-block strong { color: var(--ink); }
+.trust-block a { color: var(--green); font-weight: 700; text-underline-offset: 3px; }
 .ai-note { max-width: 570px; margin: 30px 0 0; padding: 15px 18px; border-left: 4px solid var(--orange); background: rgba(255,255,255,.48); color: var(--muted); line-height: 1.5; }
 .ai-note strong { color: var(--ink); }
 .product-preview { position: relative; padding: 30px; border: 1px solid rgba(18,69,46,.2); border-radius: 20px; background: var(--white); box-shadow: var(--shadow); transform: rotate(1.2deg); }
@@ -147,7 +140,7 @@ footer span { font-family: "Manrope"; font-weight: 800; color: white; }
   .hero-actions { align-items: stretch; gap: 13px; }
   .hero-actions .button { width: 100%; justify-content: center; }
   .file-note { width: 100%; text-align: center; }
-  .trust-top { align-items: flex-start; flex-direction: column; gap: 10px; }
+  .site-header a, footer a { min-height: 44px; display: inline-flex; align-items: center; padding-top: 10px; padding-bottom: 10px; }
   .ai-note { margin-top: 24px; }
   .product-preview { width: 100%; max-width: 100%; margin: 0; padding: 22px; transform: none; }
   .product-preview::before { inset: -8px 8px 8px -8px; border-radius: 20px; }
