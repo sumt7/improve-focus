@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Improve Focus — Keep One Task in View. Get It Done.</title>
+    <meta name="description" content="Stop tab drift before it steals your focus. Improve Focus checks whether the tabs you open match your current task and nudges you when you drift — so you can finish what you started.">
+    <link rel="canonical" href="https://improvefocus.top/">
+    <meta name="theme-color" content="#f6f3eb">
+    <link rel="icon" type="image/png" href="/icon.png">
+    <link rel="apple-touch-icon" href="/icon.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Improve Focus">
+    <meta property="og:title" content="Improve Focus — Keep One Task in View. Get It Done.">
+    <meta property="og:description" content="Stop tab drift before it steals your focus. Improve Focus checks whether the tabs you open match your current task and nudges you when you drift — so you can finish what you started.">
+    <meta property="og:url" content="https://improvefocus.top/">
+    <meta property="og:image" content="https://improvefocus.top/og-image.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Improve Focus — Keep one task in view. Get it done.">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Improve Focus — Keep One Task in View. Get It Done.">
+    <meta name="twitter:description" content="Stop tab drift before it steals your focus. Improve Focus checks whether the tabs you open match your current task and nudges you when you drift — so you can finish what you started.">
+    <meta name="twitter:image" content="https://improvefocus.top/og-image.png">
+    <meta name="twitter:image:alt" content="Improve Focus — Keep one task in view. Get it done.">
+    <meta name="twitter:creator" content="@sumt7">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Improve Focus home">
+        <img src="/icon.png" alt="" width="36" height="36">
+        <span>Improve Focus</span>
+      </a>
+      <a class="header-link" href="#install">Install guide</a>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">A small Chrome extension for focused work</p>
+          <h1 id="hero-title">Keep one task<br>in view.</h1>
+          <p class="description">Improve Focus runs a timed session, checks the tabs you open, and nudges you when a tab does not match your task.</p>
+          <div class="hero-actions">
+            <a class="button" href="/improve-focus.zip" download>Download extension <span aria-hidden="true">↓</span></a>
+            <span class="file-note">ZIP file · install in developer mode</span>
+          </div>
+          <aside class="trust-block" aria-labelledby="trust-title">
+            <div class="trust-top">
+              <div>
+                <span class="trust-kicker">Built by</span>
+                <strong id="trust-title">Sumeet Mahendra</strong>
+              </div>
+              <div class="trust-links">
+                <a href="https://x.com/sumt7">@sumt7</a>
+                <a href="https://github.com/sumt7/improve-focus">Public source ↗</a>
+              </div>
+            </div>
+            <p class="trust-label">Privacy at a glance</p>
+            <ul>
+              <li><strong>Permissions:</strong> alarms schedules the time-up alert; notifications shows focus alerts; storage keeps session settings; tabs reads the activated tab’s ID, title, and URL. Access to https://api.openai.com/* is only for optional AI checks.</li>
+              <li><strong>Tab data:</strong> A tab’s title and URL are checked against your task when you activate it. The extension stores the tab ID and relevant/irrelevant result—not its title or URL.</li>
+              <li><strong>On this Chrome profile:</strong> Your task, session state, counts, check status, and API key use chrome.storage.local. The key is saved as the plain-text value openAiApiKey; the code does not encrypt it.</li>
+              <li><strong>Optional AI:</strong> Without a key, the keyword check runs on-device. For an AI check, your key is sent to OpenAI as authorization, and your task, the active tab title, and its URL are sent in the request. The request sets store: false. The source contains no analytics or developer backend.</li>
+            </ul>
+          </aside>
+          <p class="ai-note"><strong>AI is optional.</strong> Improve Focus works without it. AI relevance checks require your own OpenAI API key.</p>
+        </div>
+
+        <div class="product-preview" aria-label="Example Improve Focus session">
+          <div class="preview-top">
+            <img src="/icon.png" alt="" width="44" height="44">
+            <div><span>One task at a time</span><strong>Improve Focus</strong></div>
+          </div>
+          <div class="preview-status"><i></i> Session running</div>
+          <p class="preview-label">Current task</p>
+          <h2>Finish the investor update</h2>
+          <div class="timer">
+            <span>Time left</span>
+            <strong>24:18</strong>
+          </div>
+          <div class="preview-counts">
+            <div><strong>6</strong><span>Relevant</span></div>
+            <div><strong>1</strong><span>Irrelevant</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section install" id="install" aria-labelledby="install-title">
+        <div class="section-heading">
+          <p class="eyebrow">Chrome setup</p>
+          <h2 id="install-title">Install in about two minutes.</h2>
+          <p>Chrome calls this an “unpacked extension” because it comes directly from a folder, not the Chrome Web Store.</p>
+        </div>
+
+        <ol class="steps">
+          <li><span class="step-number">1</span><div><h3>Download &amp; unzip</h3><p>Download <strong>improve-focus.zip</strong>, then extract the ZIP to a folder.</p></div></li>
+          <li><span class="step-number">2</span><div><h3>Open Chrome Extensions</h3><p>Type <code>chrome://extensions</code> in Chrome's address bar, press Enter, and turn <strong>Developer mode</strong> ON.</p></div></li>
+          <li><span class="step-number">3</span><div><h3>Load Improve Focus</h3><p>Click <strong>Load unpacked</strong>, select the extracted <strong>improve-focus</strong> folder, then click <strong>Select Folder</strong>.</p></div></li>
+          <li><span class="step-number">4</span><div><h3>Set up optional AI</h3><p>Open Improve Focus's <strong>Details</strong> page. If you want AI relevance checks, make sure access to <strong>https://api.openai.com/*</strong> is ON and add your own OpenAI API key from Improve Focus <strong>Options</strong>. AI remains optional.</p></div></li>
+          <li><span class="step-number">5</span><div><h3>Pin Improve Focus</h3><p>On the Details page, turn <strong>Pin to toolbar</strong> ON so Improve Focus stays easy to open.</p></div></li>
+          <li><span class="step-number">6</span><div><h3>Start focusing</h3><p>Click the Improve Focus toolbar icon, enter one task, choose a session length, then click <strong>Start Session</strong>.</p></div></li>
+        </ol>
+      </section>
+
+      <section class="section start" id="start" aria-labelledby="start-title">
+        <div class="section-heading">
+          <p class="eyebrow">Getting started</p>
+          <h2 id="start-title">Name the work. Start the clock.</h2>
+        </div>
+        <div class="start-grid">
+          <article><span>01</span><h3>Enter one task</h3><p>Click the Improve Focus icon and describe the one thing you want to finish, such as “Write the launch email.”</p></article>
+          <article><span>02</span><h3>Start a session</h3><p>Choose how long you expect the task to take, then click <strong>Start Session</strong>. Keep browsing as usual.</p></article>
+          <article><span>03</span><h3>Read the nudge</h3><p>A “Stop &amp; FOCUS” notification means the current tab looks unrelated to your task. It is a reminder, not a block, and appears only for the first unrelated tab in each session. A separate notification tells you when time is up.</p></article>
+        </div>
+      </section>
+
+      <section class="ai-section" aria-labelledby="ai-title">
+        <div>
+          <p class="eyebrow">Optional AI check</p>
+          <h2 id="ai-title">Use it with or without AI.</h2>
+        </div>
+        <div class="ai-copy">
+          <p>Without a key, Improve Focus uses a basic keyword check. If you want an AI relevance check, you must provide your own OpenAI API key.</p>
+          <p>To add one, right-click the Improve Focus icon, choose <strong>Options</strong>, paste your key, and save it. The task, tab title, and tab address are then sent to OpenAI when a tab is checked. OpenAI API usage may cost money.</p>
+        </div>
+      </section>
+
+      <section class="final-cta" aria-labelledby="cta-title">
+        <img src="/icon.png" alt="" width="58" height="58">
+        <h2 id="cta-title">Ready for one focused session?</h2>
+        <a class="button button-light" href="/improve-focus.zip" download>Download Improve Focus <span aria-hidden="true">↓</span></a>
+      </section>
+    </main>
+
+    <footer>
+      <span>Improve Focus</span>
+      <a href="#install">Installation help</a>
+    </footer>
+  </body>
+</html>

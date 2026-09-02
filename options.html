@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Improve Focus settings</title>
+    <link rel="stylesheet" href="options.css">
+  </head>
+  <body>
+    <main class="settings">
+      <h1>Improve Focus settings</h1>
+      <p class="intro">Save your OpenAI API key to use AI for tab relevance checks.</p>
+
+      <form id="apiKeyForm">
+        <label for="apiKey">OpenAI API key</label>
+        <input
+          id="apiKey"
+          name="apiKey"
+          type="password"
+          autocomplete="off"
+          spellcheck="false"
+          required
+        >
+        <p class="note">The key stays in this Chrome profile's extension storage. It is never written into the extension files.</p>
+        <button type="submit">Save key</button>
+        <p id="saveStatus" class="status" role="status"></p>
+      </form>
+
+      <section class="check-status" aria-labelledby="lastCheckHeading">
+        <h2 id="lastCheckHeading">Last relevance check</h2>
+        <p id="lastCheck">No tab has been judged yet.</p>
+      </section>
+    </main>
+
+    <script src="options.js"></script>
+  </body>
+</html>

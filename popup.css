@@ -31,6 +31,7 @@ header {
 
 h1,
 h2,
+h3,
 p {
   margin-top: 0;
 }
@@ -185,6 +186,57 @@ button:disabled {
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
+}
+
+.judgmentCard {
+  margin-top: 12px;
+  border: 1px solid #dce5de;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.82);
+  padding: 14px;
+}
+
+.judgmentHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.judgmentHeader h3 {
+  margin: 0;
+  font-size: 13px;
+}
+
+.judgmentSource {
+  border-radius: 999px;
+  padding: 4px 8px;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.judgmentSource.ai {
+  background: #e5f5e9;
+  color: #176936;
+}
+
+.judgmentSource.fallback {
+  background: #fff2d9;
+  color: #825400;
+}
+
+.judgmentSource.waiting {
+  background: #edf1ee;
+  color: #59665e;
+}
+
+#judgmentDetail {
+  margin-bottom: 0;
+  color: #536158;
+  font-size: 12px;
+  line-height: 1.45;
 }
 
 .timerCard strong {

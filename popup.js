@@ -1,4 +1,5 @@
 const SESSION_KEY = "focusSession";
+const AI_STATUS_KEY = "lastRelevanceCheck";
 
 const setupView = document.querySelector("#setupView");
 const runningView = document.querySelector("#runningView");
@@ -9,6 +10,8 @@ const timeSelect = document.querySelector("#timeSelect");
 const formError = document.querySelector("#formError");
 const endButton = document.querySelector("#endButton");
 const newSessionButton = document.querySelector("#newSessionButton");
+const judgmentSource = document.querySelector("#judgmentSource");
+const judgmentDetail = document.querySelector("#judgmentDetail");
 
 let currentSession = null;
 let timerId = null;
@@ -29,6 +32,29 @@ function formatDuration(milliseconds) {
     return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
   }
   return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+}
+
+function showJudgment(status) {
+  judgmentSource.className = "judgmentSource";
+
+  if (!status) {
+    judgmentSource.textContent = "Waiting";
+    judgmentSource.classList.add("waiting");
+    judgmentDetail.textContent = "Switch to a new tab to run the first relevance check.";
+    return;
+  }
+
+  const decision = status.relevant ? "relevant" : "irrelevant";
+  if (status.source === "ai") {
+    judgmentSource.textContent = "AI";
+    judgmentSource.classList.add("ai");
+    judgmentDetail.textContent = `AI judged this tab ${decision}. ${status.detail || ""}`.trim();
+    return;
+  }
+
+  judgmentSource.textContent = "Keyword fallback";
+  judgmentSource.classList.add("fallback");
+  judgmentDetail.textContent = `AI was not used: ${status.detail || "Reason unavailable."} The keyword check judged this tab ${decision}.`;
 }
 
 function updateRunningView() {
@@ -130,19 +156,26 @@ newSessionButton.addEventListener("click", () => {
 });
 
 chrome.storage.onChanged.addListener((changes, areaName) => {
-  if (areaName !== "local" || !changes[SESSION_KEY]?.newValue) {
+  if (areaName !== "local") {
     return;
   }
 
-  currentSession = changes[SESSION_KEY].newValue;
-  if (!runningView.hidden) {
-    updateRunningView();
+  if (changes[SESSION_KEY]?.newValue) {
+    currentSession = changes[SESSION_KEY].newValue;
+    if (!runningView.hidden) {
+      updateRunningView();
+    }
+  }
+
+  if (changes[AI_STATUS_KEY]) {
+    showJudgment(changes[AI_STATUS_KEY].newValue);
   }
 });
 
 async function initialise() {
-  const result = await chrome.storage.local.get(SESSION_KEY);
+  const result = await chrome.storage.local.get([SESSION_KEY, AI_STATUS_KEY]);
   const session = result[SESSION_KEY];
+  showJudgment(result[AI_STATUS_KEY]);
   if (session?.running) {
     showRunningSession(session);
   } else {

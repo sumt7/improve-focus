@@ -1,0 +1,10 @@
+{
+  "name": "improve-focus-landing-page",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "preview": "npm run build && node scripts/serve.mjs"
+  }
+}
