@@ -1,5 +1,6 @@
 const SESSION_KEY = "focusSession";
 const API_KEY_KEY = "openAiApiKey";
+const AI_ENABLED_KEY = "aiCheckingEnabled";
 const AI_STATUS_KEY = "lastRelevanceCheck";
 const SESSION_ALARM = "focus-session-time-up";
 const IRRELEVANT_TAB_NOTIFICATION = "irrelevant-tab";
@@ -143,16 +144,27 @@ async function getAiRelevance(tab, session, apiKey) {
 
 async function judgeRelevance(tab, session) {
   const fallbackDecision = isRelevantByKeywords(tab, session);
-  const stored = await chrome.storage.local.get(API_KEY_KEY);
+  const stored = await chrome.storage.session.get([AI_ENABLED_KEY, API_KEY_KEY]);
+  const aiEnabled = stored[AI_ENABLED_KEY] === true;
   const apiKey = stored[API_KEY_KEY]?.trim();
+
+  if (!aiEnabled) {
+    await saveRelevanceStatus(
+      "fallback",
+      fallbackDecision,
+      "AI checking is turned off."
+    );
+    console.info("Improve Focus relevance source: keyword fallback (AI is off).");
+    return fallbackDecision;
+  }
 
   if (!apiKey) {
     await saveRelevanceStatus(
       "fallback",
       fallbackDecision,
-      "No OpenAI API key is saved."
+      "AI checking is enabled, but no API key is saved for this browser session."
     );
-    console.info("Improve Focus relevance source: keyword fallback (no API key).");
+    console.info("Improve Focus relevance source: keyword fallback (no session key).");
     return fallbackDecision;
   }
 
@@ -338,6 +350,11 @@ chrome.alarms.onAlarm.addListener(async (alarm) => {
   await showNotification("Session time is up.");
 });
 
-chrome.runtime.onStartup.addListener(restoreAlarm);
-chrome.runtime.onInstalled.addListener(restoreAlarm);
-restoreAlarm();
+async function initialiseExtension() {
+  await chrome.storage.local.remove(API_KEY_KEY);
+  await restoreAlarm();
+}
+
+chrome.runtime.onStartup.addListener(initialiseExtension);
+chrome.runtime.onInstalled.addListener(initialiseExtension);
+initialiseExtension();

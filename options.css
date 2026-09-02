@@ -39,8 +39,28 @@ h2 {
   line-height: 1.5;
 }
 
-form {
+.toggle-row {
   margin-top: 28px;
+  padding: 14px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.toggle-row input {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+}
+
+.ai-settings {
+  margin-top: 28px;
+}
+
+.ai-settings[hidden] {
+  display: none;
 }
 
 label {
@@ -49,7 +69,7 @@ label {
   font-weight: 700;
 }
 
-input {
+input[type="password"] {
   box-sizing: border-box;
   width: 100%;
   padding: 12px;
@@ -58,7 +78,7 @@ input {
   font: inherit;
 }
 
-input:focus {
+input[type="password"]:focus {
   outline: 3px solid rgb(37 155 83 / 20%);
   border-color: #257f49;
 }
@@ -82,6 +102,22 @@ button {
 
 button:hover {
   background: #125c2f;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+button.secondary {
+  border: 1px solid #a9b8ae;
+  color: #802626;
+  background: #fff;
+}
+
+button.secondary:hover {
+  background: #f9eeee;
 }
 
 .status {

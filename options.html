@@ -9,22 +9,32 @@
   <body>
     <main class="settings">
       <h1>Improve Focus settings</h1>
-      <p class="intro">Save your OpenAI API key to use AI for tab relevance checks.</p>
+      <p class="intro">AI relevance checking is off by default. Improve Focus uses its keyword check unless you turn AI on for this browser session.</p>
 
-      <form id="apiKeyForm">
-        <label for="apiKey">OpenAI API key</label>
-        <input
-          id="apiKey"
-          name="apiKey"
-          type="password"
-          autocomplete="off"
-          spellcheck="false"
-          required
-        >
-        <p class="note">The key stays in this Chrome profile's extension storage. It is never written into the extension files.</p>
-        <button type="submit">Save key</button>
-        <p id="saveStatus" class="status" role="status"></p>
-      </form>
+      <label class="toggle-row" for="enableAi">
+        <input id="enableAi" type="checkbox">
+        <span>Enable AI checking (optional)</span>
+      </label>
+
+      <section id="aiSettings" class="ai-settings" hidden>
+        <form id="apiKeyForm">
+          <label for="apiKey">OpenAI API key</label>
+          <input
+            id="apiKey"
+            name="apiKey"
+            type="password"
+            autocomplete="off"
+            spellcheck="false"
+            required
+          >
+          <p class="note">The key is kept only for this browser session. It is removed when Chrome closes or when you press Delete key, and it is never written into the extension files.</p>
+          <div class="button-row">
+            <button type="submit">Save key</button>
+            <button id="deleteKey" type="button" class="secondary">Delete key</button>
+          </div>
+        </form>
+      </section>
+      <p id="saveStatus" class="status" role="status"></p>
 
       <section class="check-status" aria-labelledby="lastCheckHeading">
         <h2 id="lastCheckHeading">Last relevance check</h2>

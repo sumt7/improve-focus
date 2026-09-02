@@ -59,9 +59,9 @@
             <p id="trust-title"><strong>Built by Sumeet Mahendra</strong> · <a href="https://x.com/sumt7">@sumt7</a></p>
             <p><strong>Public source:</strong> <a href="https://github.com/sumt7/improve-focus">View on GitHub ↗</a></p>
             <p><strong>Reads:</strong> the activated tab’s title and URL to check relevance.</p>
-            <p><strong>OpenAI key:</strong> stored as plain text in chrome.storage.local for this Chrome profile.</p>
+            <p><strong>OpenAI key:</strong> AI is off by default. If enabled, the key is kept only in Chrome's in-memory extension storage for the current browser session and is removed when Chrome closes or you press Delete key.</p>
           </aside>
-          <p class="ai-note"><strong>AI is optional.</strong> Improve Focus works without it. AI relevance checks require your own OpenAI API key.</p>
+          <p class="ai-note"><strong>AI checking is off by default.</strong> Improve Focus uses keyword matching unless you enable optional AI checking and provide your own OpenAI API key for the current browser session.</p>
         </div>
 
         <div class="product-preview" aria-label="Example Improve Focus session">
@@ -83,18 +83,35 @@
         </div>
       </section>
 
+      <section class="demo-section" aria-labelledby="demo-title">
+        <div class="demo-heading">
+          <p class="eyebrow">Product demo</p>
+          <h2 id="demo-title">See the focus nudge in action.</h2>
+          <p>A short loop will show a task being entered, an unrelated tab opening, and the focus nudge appearing.</p>
+        </div>
+        <div id="demoFrame" class="demo-frame">
+          <video id="demoVideo" autoplay muted loop playsinline preload="metadata" aria-label="Improve Focus product demonstration">
+            <source src="/improve-focus-demo.mp4" type="video/mp4">
+          </video>
+          <div class="demo-placeholder" aria-hidden="true">
+            <strong>Demo video placeholder</strong>
+            <span>Add improve-focus-demo.mp4 to the site folder.</span>
+          </div>
+        </div>
+      </section>
+
       <section class="section install" id="install" aria-labelledby="install-title">
         <div class="section-heading">
           <p class="eyebrow">Chrome setup</p>
-          <h2 id="install-title">Install in about two minutes.</h2>
-          <p>This is a manual Chrome extension install. It takes six steps and requires Developer mode to be turned on.</p>
+          <h2 id="install-title">Manual install in 6 steps</h2>
+          <p>This requires turning on Chrome's Developer mode.</p>
         </div>
 
         <ol class="steps">
           <li><span class="step-number">1</span><div><h3>Download &amp; unzip</h3><p>Download <strong>improve-focus.zip</strong>, then extract the ZIP to a folder.</p></div></li>
           <li><span class="step-number">2</span><div><h3>Open Chrome Extensions</h3><p>Type <code>chrome://extensions</code> in Chrome's address bar, press Enter, and turn <strong>Developer mode</strong> ON.</p></div></li>
           <li><span class="step-number">3</span><div><h3>Load Improve Focus</h3><p>Click <strong>Load unpacked</strong>, select the extracted <strong>improve-focus</strong> folder, then click <strong>Select Folder</strong>.</p></div></li>
-          <li><span class="step-number">4</span><div><h3>Set up optional AI</h3><p>Open Improve Focus's <strong>Details</strong> page. If you want AI relevance checks, make sure access to <strong>https://api.openai.com/*</strong> is ON and add your own OpenAI API key from Improve Focus <strong>Options</strong>. AI remains optional.</p></div></li>
+          <li><span class="step-number">4</span><div><h3>Set up optional AI</h3><p>Open Improve Focus's <strong>Details</strong> page and make sure access to <strong>https://api.openai.com/*</strong> is ON. In <strong>Options</strong>, turn on <strong>Enable AI checking (optional)</strong> before adding your key. The key lasts only for the current browser session.</p></div></li>
           <li><span class="step-number">5</span><div><h3>Pin Improve Focus</h3><p>On the Details page, turn <strong>Pin to toolbar</strong> ON so Improve Focus stays easy to open.</p></div></li>
           <li><span class="step-number">6</span><div><h3>Start focusing</h3><p>Click the Improve Focus toolbar icon, enter one task, choose a session length, then click <strong>Start Session</strong>.</p></div></li>
         </ol>
@@ -118,8 +135,8 @@
           <h2 id="ai-title">Use it with or without AI.</h2>
         </div>
         <div class="ai-copy">
-          <p>Without a key, Improve Focus uses a basic keyword check. If you want an AI relevance check, you must provide your own OpenAI API key.</p>
-          <p>To add one, right-click the Improve Focus icon, choose <strong>Options</strong>, paste your key, and save it. The task, tab title, and tab address are then sent to OpenAI when a tab is checked. OpenAI API usage may cost money.</p>
+          <p>AI checking is off by default, so Improve Focus starts with its keyword check. To opt in, right-click the Improve Focus icon, choose <strong>Options</strong>, and turn on <strong>Enable AI checking (optional)</strong>.</p>
+          <p>The key is kept only for the current browser session and can be removed with <strong>Delete key</strong>. While AI checking is enabled, your task, the active tab title, and its address are sent to OpenAI when a new tab is judged. OpenAI API usage may cost money.</p>
         </div>
       </section>
 
