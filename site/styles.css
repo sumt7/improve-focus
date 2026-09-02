@@ -76,6 +76,12 @@ h1 { margin: 0; font-size: clamp(3.7rem, 7vw, 6.7rem); line-height: 0.92; letter
 .trust-block p { margin: 0; color: var(--muted); font-size: .8rem; line-height: 1.4; }
 .trust-block strong { color: var(--ink); }
 .trust-block a { color: var(--green); font-weight: 700; text-underline-offset: 3px; }
+.creator-row { display: flex; align-items: center; flex-wrap: wrap; gap: 4px; }
+.creator-socials { display: inline-flex; align-items: center; gap: 2px; }
+.trust-block .creator-social-link { min-width: 44px; height: 44px; padding: 0 10px; display: inline-flex; align-items: center; justify-content: center; gap: 7px; border-radius: 8px; text-decoration: none; }
+.trust-block .creator-social-link:hover { background: rgba(31,106,70,.08); }
+.creator-social-link svg { width: 17px; height: 17px; flex: 0 0 auto; fill: currentColor; }
+.trust-block .creator-social-icon { width: 44px; padding: 0; }
 .ai-note { max-width: 570px; margin: 30px 0 0; padding: 15px 18px; border-left: 4px solid var(--orange); background: rgba(255,255,255,.48); color: var(--muted); line-height: 1.5; }
 .ai-note strong { color: var(--ink); }
 .product-preview { position: relative; padding: 30px; border: 1px solid rgba(18,69,46,.2); border-radius: 20px; background: var(--white); box-shadow: var(--shadow); transform: rotate(1.2deg); }
