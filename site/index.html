@@ -30,6 +30,14 @@
     <link rel="stylesheet" href="/styles.css">
     <script src="/script.js" defer></script>
     <script>
+      !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}p||((p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",p.onerror=function(){p=null},(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r));var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],Object.defineProperty(u,"toString",{configurable:!0,enumerable:!0,writable:!0,value:function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e}}),Object.defineProperty(u.people,"toString",{configurable:!0,enumerable:!0,writable:!0,value:function(){return u.toString(1)+".people (stub)"}}),o="Tl Ml El Il Al init Xl tu Jl Kl nu ho Yl au Gl capture getExtension eu xl vu calculateEventProperties du register register_once register_for_session unregister unregister_for_session gu Ql cu getFeatureFlag getFeatureFlagPayload getFeatureFlagResult getAllFeatureFlags isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync mu identify setPersonProperties unsetPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset yu shutdown setIdentity clearIdentity get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException addExceptionStep captureLog startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty fu uu createPersonProfile setInternalOrTestUser pu Fl Ol opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing ou debug do ts getPageViewId captureTraceFeedback captureTraceMetric zl".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+      posthog.init('phc_ySZPLaV5424McU7ekUt6bASXDE9THPjYenwbneWQbfbS', {
+        api_host: 'https://us.i.posthog.com',
+        defaults: '2026-05-30',
+        person_profiles: 'identified_only', // or 'always' to create profiles for anonymous users as well
+      })
+    </script>
+    <script>
       window.va = window.va || function () {
         (window.vaq = window.vaq || []).push(arguments);
       };
@@ -52,7 +60,7 @@
           <h1 id="hero-title">Keep one task<br>in view.</h1>
           <p class="description">Improve Focus runs a timed session, checks the tabs you open, and nudges you when a tab does not match your task.</p>
           <div class="hero-actions">
-            <a class="button" href="/improve-focus.zip" download>Download extension <span aria-hidden="true">↓</span></a>
+            <a class="button" href="/improve-focus.zip" download onclick="posthog.capture('download_extension')">Download extension <span aria-hidden="true">↓</span></a>
             <span class="file-note">ZIP file · install in developer mode</span>
           </div>
           <aside class="trust-block" aria-labelledby="trust-title">
@@ -155,7 +163,7 @@
       <section class="final-cta" aria-labelledby="cta-title">
         <img src="/icon.png" alt="" width="58" height="58">
         <h2 id="cta-title">Ready for one focused session?</h2>
-        <a class="button button-light" href="/improve-focus.zip" download>Download Improve Focus <span aria-hidden="true">↓</span></a>
+        <a class="button button-light" href="/improve-focus.zip" download onclick="posthog.capture('download_extension')">Download Improve Focus <span aria-hidden="true">↓</span></a>
       </section>
     </main>
 
